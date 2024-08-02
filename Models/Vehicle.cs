@@ -18,10 +18,10 @@ namespace Simulacro_01.Models
         public Vehicle(int _id, string _plate, string _type, string _engineNumber, string _serialNumber, byte _peopleCapacity, Driver _owner)
         {
             this.Id = _id;
-            this.Plate = _plate;
-            this.Type = _type;
-            this.EngineNumber = _engineNumber;
-            this.SerialNumber = _serialNumber;
+            this.Plate = _plate.Trim().ToUpper();
+            this.Type = _type.Trim().ToLower();
+            this.EngineNumber = _engineNumber.Trim();
+            this.SerialNumber = _serialNumber.Trim();
             this.PeopleCapacity = _peopleCapacity;
             this.Owner = _owner;
         }
