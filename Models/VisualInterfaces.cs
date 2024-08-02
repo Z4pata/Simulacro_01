@@ -22,7 +22,7 @@ namespace Simulacro_01.Models
             return Console.ReadLine();
         }
 
-        public static void ErrorMessage(){
+        public static void IntErrorMessage(){
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Error: Debes ingresar un numero!!");
             Console.ForegroundColor = ConsoleColor.White;
