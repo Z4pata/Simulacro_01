@@ -33,5 +33,10 @@ namespace Simulacro_01.Models
             Console.WriteLine("Error: Debes ingresar un email valido!!");
             Console.ForegroundColor = ConsoleColor.White;
         }
+        public static void ShowVehicleTypeErrorMessage(){
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Error: Debes ingresar un vehiculo valido!!");
+            Console.ForegroundColor = ConsoleColor.White;
+        }
     }
 }
