@@ -23,5 +23,12 @@ namespace Simulacro_01.Models
         public void AddExperience(int years){
             DrivingExperience += years;
         }
+
+        public void ShowDriver(){
+            ShowDetails();
+            Console.WriteLine(@$"           Numero de licencia: {LicenseNumber}
+            Categoria de la licencia: {LicenseCategory}
+            Años de experiencia: {DrivingExperience}");
+        }
     }
 }
