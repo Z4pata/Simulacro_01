@@ -37,16 +37,20 @@ namespace Simulacro_01.Models
 
         public static bool ValidateEmail(string email)
         {
-            string ValidFormat = new MailAddress(email).Address;
+            try
+            {
+                var val = new System.Net.Mail.MailAddress(email);
+                bool validate = val.Address == email;
+                return !validate;
 
-            if (ValidFormat == email)
-            {
-                return false;
             }
-            else
+            catch
             {
+                VisualInterfaces.ShowEmailErrorMessage();
                 return true;
             }
+
+
         }
     }
 }
