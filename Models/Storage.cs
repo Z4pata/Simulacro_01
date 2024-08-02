@@ -10,5 +10,12 @@ namespace Simulacro_01.Models
         public static List<Driver> DriverList {get; set;} = new List<Driver>();
         public static List<Vehicle> VehicleList {get; set;} = new List<Vehicle>();
         public static List<Customer> CustomerList {get; set;} = new List<Customer>();
+
+        public static void AddDriver(){
+            DriverList.Add(Admin.CreateDriver());
+        }
+        public static void AddCustomer(){
+            CustomerList.Add(Admin.CreateCustomer());
+        }
     }
 }
