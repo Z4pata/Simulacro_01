@@ -26,7 +26,15 @@ namespace Simulacro_01.Models
             this.Owner = _owner;
         }
         public void DeleteVehicle(int id){
-            
+            if (Storage.VehicleList.Any(v => v.Id == id)){
+                var vehicle = Storage.VehicleList.FirstOrDefault(v => v.Id == id);
+
+                Storage.VehicleList.Remove(vehicle);
+
+                Console.WriteLine("El vehiculo se ha eliminado con exito!!");
+            } else {
+                Console.WriteLine("No existe ningun vehiculo con este ID!!");
+            }
         }
     }
 }
