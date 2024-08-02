@@ -52,5 +52,18 @@ namespace Simulacro_01.Models
 
 
         }
+
+        public static bool ValidateVehicleType(string input)
+        {
+            string[] Tipos = ["carro", "moto", "camioneta", "microbus"];
+
+            if (Tipos.Contains(input)){
+                return false;
+            } else {
+                VisualInterfaces.ShowVehicleTypeErrorMessage();
+                return true;
+            }
+
+        }
     }
 }
