@@ -7,7 +7,7 @@ namespace Simulacro_01.Models
 {
     public class VisualInterfaces
     {
-        public static string PrimerMenu(){
+        public static string FirstMenu(){
             Console.Write(@$"
                         BIENVENIDO!!
                 
@@ -20,6 +20,12 @@ namespace Simulacro_01.Models
             ==> ");
 
             return Console.ReadLine();
+        }
+
+        public static void ErrorMessage(){
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Error: Debes ingresar un numero!!");
+            Console.ForegroundColor = ConsoleColor.White;
         }
     }
 }
