@@ -7,7 +7,7 @@ namespace Simulacro_01.Models
 {
     public class VisualInterfaces
     {
-        public static string FirstMenu(){
+        public static string ShowFirstMenu(){
             Console.Write(@$"
                         BIENVENIDO!!
                 
@@ -22,9 +22,15 @@ namespace Simulacro_01.Models
             return Console.ReadLine();
         }
 
-        public static void IntErrorMessage(){
+        public static void ShowIntErrorMessage(){
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Error: Debes ingresar un numero!!");
+            Console.ForegroundColor = ConsoleColor.White;
+        }
+
+        public static void ShowEmailErrorMessage(){
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Error: Debes ingresar un email valido!!");
             Console.ForegroundColor = ConsoleColor.White;
         }
     }
