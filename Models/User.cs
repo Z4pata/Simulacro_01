@@ -14,6 +14,13 @@ namespace Simulacro_01.Models
         protected string LastName { get; set; }
         protected string TypeDocument { get; set; }
         protected string IdentificationNumber { get; set; }
+        // -----------------------------------------------------------------
+        public string IdentificationNumberPublic
+        {
+            get { return IdentificationNumber; }
+            set { IdentificationNumber = IdentificationNumberPublic; }
+        }
+        // ------------------------------------------------------------------
         protected DateOnly BirthDate { get; set; }
         protected string Email { get; set; }
         protected string PhoneNumber { get; set; }
@@ -33,7 +40,7 @@ namespace Simulacro_01.Models
 
         protected void ShowDetails()
         {
-            Console.WriteLine(@$"           ID: {Id}
+            Console.WriteLine(@$"            ID: {Id}
             Nombre completo: {Name} {LastName}
             Tipo de documento: {TypeDocument}
             Numero de documento: {IdentificationNumber}
