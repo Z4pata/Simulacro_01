@@ -36,5 +36,19 @@ namespace Simulacro_01.Models
                 Console.WriteLine("No existe ningun vehiculo con este ID!!");
             }
         }
+
+        public void ShowVehicle(){
+            Console.WriteLine(@$"
+            Placa: {Plate}
+            Vehiculo: {Type}
+            Numero de motor: {EngineNumber}
+            Numero de serie: {SerialNumber}
+            Capacidad: {PeopleCapacity}
+            ");
+            Console.WriteLine($@"
+            -------------- Dueño ------------------
+            ");
+            Owner.ShowDriver();
+        }
     }
 }
