@@ -16,7 +16,6 @@ namespace Simulacro_01.Models
             }
             catch
             {
-                VisualInterfaces.IntErrorMessage();
                 return true;
             }
 
@@ -31,7 +30,6 @@ namespace Simulacro_01.Models
             } 
             catch
             {
-                VisualInterfaces.IntErrorMessage();
                 return true;
             }
         }
