@@ -14,8 +14,14 @@ namespace Simulacro_01.Models
             this.MembershipLevel = _membershipLevel.Trim();
             this.PreferredPaymentMethod = _preferredPaymentMethod.Trim().ToLower();
         }
-        public void UpdateMembershipLevel(){
-            MembershipLevel +=1;
+        public void UpdateMembershipLevel(string newLevel){
+            MembershipLevel = newLevel;
+        }
+
+        public void ShowCostumer(){
+            ShowDetails();
+            Console.WriteLine(@$"           Nivel de suscripcion: {MembershipLevel}
+            Metodo de pago preferido: {PreferredPaymentMethod}");
         }
     }
 }
