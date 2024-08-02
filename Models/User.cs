@@ -21,14 +21,14 @@ namespace Simulacro_01.Models
         public User(string _name, string _lastName, string _typeDocument, string _identificationNumber, DateOnly _birthDate, string _email, string _phoneNumber, string _address)
         {
             this.Id = Guid.NewGuid();
-            this.Name = _name;
-            this.LastName = _lastName;
-            this.TypeDocument = _typeDocument;
-            this.IdentificationNumber = _identificationNumber;
+            this.Name = _name.Trim().ToLower();
+            this.LastName = _lastName.Trim().ToLower();
+            this.TypeDocument = _typeDocument.Trim().ToUpper();
+            this.IdentificationNumber = _identificationNumber.Trim();
             this.BirthDate = _birthDate;
-            this.Email = _email;
-            this.PhoneNumber = _phoneNumber;
-            this.Address = _address;
+            this.Email = _email.Trim();
+            this.PhoneNumber = _phoneNumber.Trim();
+            this.Address = _address.Trim();
         }
 
         protected void ShowDetails()
