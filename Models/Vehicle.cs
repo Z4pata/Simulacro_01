@@ -33,7 +33,7 @@ namespace Simulacro_01.Models
 
                 Console.WriteLine("El vehiculo se ha eliminado con exito!!");
             } else {
-                Console.WriteLine("No existe ningun vehiculo con este ID!!");
+                VisualInterfaces.ShowErrorFind("vehiculo");
             }
         }
 
@@ -45,10 +45,11 @@ namespace Simulacro_01.Models
             Numero de serie: {SerialNumber}
             Capacidad: {PeopleCapacity}
             ");
-            Console.WriteLine($@"
-            -------------- Dueño ------------------
-            ");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("     -------------- Dueño ------------------");
+            Console.ForegroundColor = ConsoleColor.White;
             Owner.ShowDriver();
+
         }
     }
 }

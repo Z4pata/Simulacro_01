@@ -29,6 +29,8 @@ namespace Simulacro_01.Models
             Console.WriteLine(@$"            Numero de licencia: {LicenseNumber}
             Categoria de la licencia: {LicenseCategory}
             Años de experiencia: {DrivingExperience}");
+            Console.WriteLine("     ----------------------------");
+
         }
     }
 }

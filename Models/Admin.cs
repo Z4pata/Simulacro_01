@@ -13,16 +13,16 @@ namespace Simulacro_01.Models
             string lastName;
             string typeDocument;
             string identificationNumber;
-            int year = 0;
-            int month = 0;
-            int day = 0;
             DateOnly birthDate;
             string email;
             string phoneNumber;
             string address;
             string membershipLevel;
             string preferredPaymentMethod;
-
+            // Les tengo que dar un valor ya que al hacer las validaciones me da un error de que la variable no tiene contenido
+            int year = 0;
+            int month = 0;
+            int day = 0;
 
             // Nombre
 
@@ -65,55 +65,9 @@ namespace Simulacro_01.Models
 
             Console.WriteLine("Fecha de Nacimiento: ");
 
-            string sYear;
-            do
-            {
-                Console.Write("     Año: ");
-                sYear = Console.ReadLine();
-
-                if (!Settings.ValidateInt(sYear))
-                {
-                    year = Convert.ToInt16(sYear);
-                }
-                else
-                {
-                    VisualInterfaces.ShowIntErrorMessage();
-                }
-
-            } while (Settings.ValidateInt(sYear));
-
-            string sMonth;
-            do
-            {
-                Console.Write("     Mes: ");
-                sMonth = Console.ReadLine();
-
-                if (!Settings.ValidateInt(sMonth))
-                {
-                    month = Convert.ToInt16(sMonth);
-                }
-                else
-                {
-                    VisualInterfaces.ShowIntErrorMessage();
-                }
-            } while (Settings.ValidateInt(sMonth));
-
-            string sDay;
-            do
-            {
-                Console.Write("     Dia: ");
-                sDay = Console.ReadLine();
-
-                if (!Settings.ValidateInt(sDay))
-                {
-                    day = Convert.ToInt16(sDay);
-                }
-                else
-                {
-                    VisualInterfaces.ShowIntErrorMessage();
-                }
-
-            } while (Settings.ValidateInt(sDay));
+            year = Settings.ValidateInt("Año: ");
+            month = Settings.ValidateInt("Mes: ");
+            day = Settings.ValidateInt("Dia: ");
 
             birthDate = new DateOnly(year, day, month);
 
@@ -122,7 +76,7 @@ namespace Simulacro_01.Models
             do
             {
                 Console.Write("Ingrese el correo: ");
-                email = Console.ReadLine();
+                email = Console.ReadLine() ?? "";
 
             } while (Settings.ValidateEmail(email));
 
@@ -157,7 +111,7 @@ namespace Simulacro_01.Models
 
             do
             {
-                Console.Write("Que metodo de pago prefiere?: ");
+                Console.Write("Que metodo de pago prefiere? (credit card o debit card): ");
                 preferredPaymentMethod = Console.ReadLine();
 
             } while (string.IsNullOrWhiteSpace(preferredPaymentMethod));
@@ -227,55 +181,9 @@ namespace Simulacro_01.Models
 
             Console.WriteLine("Fecha de Nacimiento: ");
 
-            string sYear;
-            do
-            {
-                Console.Write("     Año: ");
-                sYear = Console.ReadLine();
-
-                if (!Settings.ValidateInt(sYear))
-                {
-                    year = Convert.ToInt16(sYear);
-                }
-                else
-                {
-                    VisualInterfaces.ShowIntErrorMessage();
-                }
-
-            } while (Settings.ValidateInt(sYear));
-
-            string sMonth;
-            do
-            {
-                Console.Write("     Mes: ");
-                sMonth = Console.ReadLine();
-
-                if (!Settings.ValidateInt(sMonth))
-                {
-                    month = Convert.ToInt16(sMonth);
-                }
-                else
-                {
-                    VisualInterfaces.ShowIntErrorMessage();
-                }
-            } while (Settings.ValidateInt(sMonth));
-
-            string sDay;
-            do
-            {
-                Console.Write("     Dia: ");
-                sDay = Console.ReadLine();
-
-                if (!Settings.ValidateInt(sDay))
-                {
-                    day = Convert.ToInt16(sDay);
-                }
-                else
-                {
-                    VisualInterfaces.ShowIntErrorMessage();
-                }
-
-            } while (Settings.ValidateInt(sDay));
+            year = Settings.ValidateInt("Año: ");
+            month = Settings.ValidateInt("Mes: ");
+            day = Settings.ValidateInt("Dia: ");
 
             birthDate = new DateOnly(year, day, month);
 
@@ -325,21 +233,7 @@ namespace Simulacro_01.Models
 
             string sDrivingExperience;
 
-            do
-            {
-                Console.Write("Ingrese los años de experiencia conduciendo: ");
-                sDrivingExperience = Console.ReadLine();
-
-                if (!Settings.ValidateInt(sDrivingExperience))
-                {
-                    drivingExperience = Convert.ToInt16(sDrivingExperience);
-                }
-                else
-                {
-                    VisualInterfaces.ShowIntErrorMessage();
-                }
-
-            } while (Settings.ValidateInt(sDrivingExperience));
+            drivingExperience = Settings.ValidateInt("Ingrese los años de experiencia conduciendo: ");
 
             var driver = new Driver(name, lastName, typeDocument, identificationNumber, birthDate, email, phoneNumber, address, licenseNumber, licenseCategory, drivingExperience);
 
@@ -352,8 +246,8 @@ namespace Simulacro_01.Models
             string type;
             string engineNumber;
             string serialNumber;
+            byte peopleCapacity;
             // Les tengo que dar un valor ya que al hacer las validaciones me da un error de que la variable no tiene contenido
-            byte peopleCapacity = 0;
             Driver owner = new Driver("sa", "sad", "sa", "ad", new DateOnly(202, 1, 10), "sda", "sad", "sad", "asd", "sda", 12);
 
             // Placa
@@ -400,22 +294,7 @@ namespace Simulacro_01.Models
 
             // Capacidad del vehiculo
 
-            string sCapacity;
-
-            do
-            {
-                Console.Write("Cuantas personas caben?: ");
-                sCapacity = Console.ReadLine();
-                if (!Settings.ValidateByte(sCapacity))
-                {
-                    peopleCapacity = Convert.ToByte(sCapacity);
-                }
-                else
-                {
-                    VisualInterfaces.ShowIntErrorMessage();
-                }
-
-            } while (Settings.ValidateByte(sCapacity));
+            peopleCapacity = Settings.ValidateByte("Cuantas personas caben?: ");
 
             // Dueño del vehiculo
             bool flag = true;

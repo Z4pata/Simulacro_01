@@ -58,5 +58,9 @@ namespace Simulacro_01.Models
         {
             Console.WriteLine(CalculateAge());
         }
+
+        public int GetAge(){
+            return CalculateAge();
+        }
     }
 }

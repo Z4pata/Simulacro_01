@@ -8,31 +8,64 @@ namespace Simulacro_01.Models
 {
     public class Settings
     {
-        public static bool ValidateByte(string input)
-        {
-            try
-            {
-                byte.Parse(input);
-                return false;
-            }
-            catch
-            {
-                return true;
-            }
 
+        public static string ValidateString(string prompt)
+        {
+            string aValidar;
+
+            do
+            {
+                Console.Write(prompt);
+                aValidar = Console.ReadLine() ?? " ";
+
+            } while (string.IsNullOrWhiteSpace(aValidar));
+
+            return aValidar;
+        }
+        public static byte ValidateByte(string prompt)
+        {
+            while (true){
+                Console.Write(prompt);
+                string sAvalidar = Console.ReadLine() ?? string.Empty;
+
+                byte result;
+                if (byte.TryParse(sAvalidar, out result)){
+                    return result;
+                } else {
+                    VisualInterfaces.ShowIntErrorMessage();
+                }
+            }
         }
 
-        public static bool ValidateInt(string input)
+        public static int ValidateInt(string prompt)
         {
-            try
-            {
-                int.Parse(input);
-                return false;
+            while (true){
+                Console.Write(prompt);
+                string sAvalidar = Console.ReadLine() ?? string.Empty;
+
+                int result;
+                if (int.TryParse(sAvalidar, out result)){
+                    return result;
+                } else {
+                    VisualInterfaces.ShowIntErrorMessage();
+                }
             }
-            catch
+        }
+        
+
+        // otra forma para hacer la validacion en un entero
+
+        public static int ValInt(string prompt)
+        {
+            Console.Write(prompt);
+
+            int input;
+            while (!int.TryParse((Console.ReadLine() ?? string.Empty).AsSpan(), out input))
             {
-                return true;
+                VisualInterfaces.ShowIntErrorMessage();
+                Console.Write(prompt);
             }
+            return input;
         }
 
         public static bool ValidateEmail(string email)
@@ -57,9 +90,12 @@ namespace Simulacro_01.Models
         {
             string[] Tipos = ["carro", "moto", "camioneta", "microbus"];
 
-            if (Tipos.Contains(input)){
+            if (Tipos.Contains(input))
+            {
                 return false;
-            } else {
+            }
+            else
+            {
                 VisualInterfaces.ShowVehicleTypeErrorMessage();
                 return true;
             }

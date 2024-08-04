@@ -22,6 +22,9 @@ namespace Simulacro_01.Models
             ShowDetails();
             Console.WriteLine(@$"            Nivel de suscripcion: {MembershipLevel}
             Metodo de pago preferido: {PreferredPaymentMethod}");
+            Console.WriteLine("     -----------------------------");
+
         }
+
     }
 }
